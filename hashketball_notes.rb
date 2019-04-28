@@ -118,12 +118,13 @@ def game_hash()
   }
 end
 
-def num_points_scored(player)
-  game_hash.each do |team, keys|
-    game_hash[team].each do |keys, data| 
+def num_points_scored(player) # player name (string)
+  game_hash.each do |team, keys| # game_hash above, team (:home/:away - symbols) keys - 2nd tier symbols.
+    game_hash[team].each do |keys, data| # data is the information such as Charlotte Hornets
       if game_hash[team][:players].include?(player)
         return game_hash[team][:players][player][:points]
       end
+      # binding.pry
     end
   end
 end
@@ -162,9 +163,11 @@ end
 def team_names()
   team_name_array = []
   game_hash.each do |team, keys|
+  #   game_hash[team].collect do |keys, data|
     team_name_array << game_hash[team][:team_name]
-  end
-  team_name_array
+    # binding.pry
+    end
+    team_name_array
 end
 
 def player_numbers(team)
@@ -182,15 +185,18 @@ def player_numbers(team)
       end
       charlotte_numbers
     end
+    # binding.pry
   end
   if team == "Brooklyn Nets"
     return brooklyn_numbers
   elsif team == "Charlotte Hornets"
     return charlotte_numbers
   end
+
 end
 
 def big_shoe_rebounds()
+  # new_hash = {}
   n = nil
   game_hash.each do |team, keys|
     game_hash[team].each do |keys, data|
@@ -208,6 +214,8 @@ def big_shoe_rebounds()
       game_hash[team][:players].each do |data, info_tag|
         game_hash[team][:players][data].each do |info_tag, info|
           if n == game_hash[team][:players][data][:shoe]
+          # new_hash = {team => {:players => {data => {:rebounds => info}}}} 
+              # this didn't work BECAUSE we had defined everything up to data, but when we changed to :rebounds, it just selects the first value from the iterative list (with respect to the tier) which would be the value for the :number key.
             return game_hash[team][:players][data].fetch(:rebounds)
           end
         end
