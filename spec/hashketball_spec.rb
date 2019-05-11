@@ -246,35 +246,36 @@ describe 'hashketball' do
 
 end
 
-# If you'd like to work on the bonus, uncomment these tests.
 
-# describe 'bonus' do
+describe 'bonus' do
 
-#   describe '#most_points_scored' do
 
-#     it 'returns Ben Gordon' do
-#       expect(most_points_scored).to eq("Ben Gordon")
-#     end
+describe '#most_points_scored' do
 
-#   end
+ it 'returns Ben Gordon' do
+     expect(most_points_scored).to eq("Ben Gordon")
+  end
 
-#   describe '#winning_team' do
+  end
+end
 
-#     it 'returns the Brooklyn Nets' do
-#       expect(winning_team).to eq("Brooklyn Nets")
-#     end
+#describe '#winning_team' do
 
-#   end
-
-#   describe '#player_with_longest_name' do
-
-#     it 'returns Brendan Haywood' do
-#       expect(player_with_longest_name).to eq("Brendan Haywood")
-#     end
-
-#   end
+ #it 'returns the Brooklyn Nets' do
+  #   expect(winning_team).to eq("Brooklyn Nets")
+  #end
 
 # end
+
+ #describe '#player_with_longest_name' do
+
+  #it 'returns Brendan Haywood' do
+  #  expect(player_with_longest_name).to eq("Brendan Haywood")
+  # end
+
+ #end
+
+#end
 
 # describe 'super bonus' do
 
